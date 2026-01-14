@@ -2,16 +2,16 @@ import os
 
 import wandb
 from rsl_rl.env.vec_env import VecEnv
-from rsl_rl.runners import OnPolicyRunner
 
 from mjlab.rl import RslRlVecEnvWrapper
+from mjlab.rl.runner import MjlabOnPolicyRunner
 from mjlab.tasks.tracking.rl.exporter import (
   attach_onnx_metadata,
   export_motion_policy_as_onnx,
 )
 
 
-class MotionTrackingOnPolicyRunner(OnPolicyRunner):
+class MotionTrackingOnPolicyRunner(MjlabOnPolicyRunner):
   env: RslRlVecEnvWrapper
 
   def __init__(

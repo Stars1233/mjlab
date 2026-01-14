@@ -1,16 +1,16 @@
 import os
 
 import wandb
-from rsl_rl.runners import OnPolicyRunner
 
 from mjlab.rl import RslRlVecEnvWrapper
+from mjlab.rl.runner import MjlabOnPolicyRunner
 from mjlab.tasks.velocity.rl.exporter import (
   attach_onnx_metadata,
   export_velocity_policy_as_onnx,
 )
 
 
-class VelocityOnPolicyRunner(OnPolicyRunner):
+class VelocityOnPolicyRunner(MjlabOnPolicyRunner):
   env: RslRlVecEnvWrapper
 
   def save(self, path: str, infos=None):
